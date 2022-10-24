@@ -2,7 +2,7 @@ package main
 
 import (
 	"os"
-	routes "go-mongo-rest/routes" 
+	"github.com/johndobsonUK/go-mongo-rest/routes" 
 	"github.com/gin-gonic/gin"
 )
 
