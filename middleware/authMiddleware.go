@@ -9,6 +9,8 @@ import (
 
 func Authenticate() gin.HandlerFunc {
 	return func(c *gin.Context) {
+
+		// Extract the token from user input
 		clientToken := c.Request.Header.Get("token")
 		if clientToken == "" {
 			c.JSON(http.StatusInternalServerError, gin.H{"error":""})
@@ -22,6 +24,9 @@ func Authenticate() gin.HandlerFunc {
 			c.Abort()
 			return
 		}
+
+		// If the token is valid, inject claims details into current context
+
 		c.Set("email", claims.Email)
 		c.Set("first_name", claims.First_name)
 		c.Set("last_name", claims.Last_name)
